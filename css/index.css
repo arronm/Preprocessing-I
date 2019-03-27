@@ -324,4 +324,15 @@ header a:hover {
   font-size: 2rem;
   line-height: 1.5;
 }
+.contact h2 {
+  font-size: 3.8rem;
+  color: #333333;
+  margin-bottom: 30px;
+  letter-spacing: 0.3rem;
+}
+.contact span {
+  display: block;
+  margin: 10px 0;
+  font-size: 2rem;
+}
 /*# sourceMappingURL=index.css.map */
