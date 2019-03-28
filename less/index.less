@@ -4,6 +4,27 @@
    License: none (public domain)
 */
 
+@roboto: 'Roboto', Arial, sans-serif;
+@opensans: 'Open Sans', Arial, sans-serif;
+@primary-color: #0074D9;
+@secondary-color: orange;
+@neutral-light: #f5f5f5;
+@neutral-dark: #333333;
+
+.flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-shadow() {
+	text-shadow: 3px 3px 2px rgba(51,51,51,0.25);
+}
+
+html {
+	font-size: 62.5%;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,9 +41,9 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
+	font-family: @opensans;
+	color: @neutral-dark;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -50,10 +71,234 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+.container {
+	line-height: 1.25;
+	font-size: 1.6rem;
+	max-width: 1200px;
+	margin: 690px auto 0;
+	padding: 0 1%;
+}
+
+/* Header */
+header {
+	position: fixed;
+	width: 100%;
+	right: 0;
+	top: 0;
+	height: 60px;
+	.flex-center;
+	background: @primary-color;
+	-webkit-box-shadow: 0px 1px 5px -2px rgba(51,51,51,1);
+	-moz-box-shadow: 0px 1px 5px -2px rgba(51,51,51,1);
+	box-shadow: 0px 1px 5px -2px rgba(51,51,51,1);
+
+	nav {
+		width: 100%;
+		max-width: 1200px;
+		padding: 1% 0;
+		display: flex;
+		justify-content: space-between;
+		box-sizing: content-box;
+	}
+
+	a {
+		font-size: 1.8rem;
+		text-decoration: none;
+		color: @neutral-light;
+		font-family: @roboto;
+		font-weight: 300;
+		border-bottom: 1px solid transparent;
+
+		&:hover {
+			filter: opacity(0.8);
+		}
+	}
+}
+
+/* Hero */
+.hero-container {
+	height: 600px;
+	width: 100%;
+	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../assets/productive-coffee.jpg);
+	background-size: cover;
+	background-position: 100% 40%;
+	position: absolute;
+	overflow-y: hidden;
+	top: 60px;
+	left: 0;
+	z-index: -1;
+
+	@media( max-width: 1028px ) {
+		background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/productive-coffee.jpg);
+		background-size: cover;
+		background-position: 100% 40%;
+	}
+}
+
+.hero {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+
+	@media( max-width: 768px ) {
+		align-items: center;
+	}
+
+	h1, p, span {
+		color: @neutral-light;
+	}
+
+	&__name {
+		margin-bottom: 60px;
+
+		h1 {
+			font-family: @roboto;
+			font-weight: 300;
+			font-size: 6rem;
+			margin-bottom: 15px;
+			.text-shadow;
+		}
+		
+		span {
+			font-size: 3rem;
+			.text-shadow;
+		}
+	}
+	
+	&__intro {
+		max-width: 70%;
+
+		@media( max-width: 768px ) {
+      max-width: 90%;
+		}
+
+		p {
+			font-size: 2.2rem;
+			.text-shadow;
+			margin-bottom: 30px;
+		}
+	}
+
+	&__button {
+		height: 60px;
+		padding: 0 40px;
+		font-size: 2rem;
+		background: transparent;
+		border: 1px solid @neutral-light;
+		border-radius: 3px;
+		color: @neutral-light;
+		font-weight: 600;
+		letter-spacing: 1px;
+		cursor: pointer;
+		.text-shadow;
+
+		&:hover {
+			background: @secondary-color;
+			border: 1px solid @secondary-color;
+			// color: @secondary-color;
+		}
+	}
+}
+
+/* Overview */
+.overview {
+	h2 {
+		color: @neutral-dark;
+		font-size: 3.8rem;
+		margin-bottom: 30px;
+		letter-spacing: 0.3rem;
+	}
+
+	&__skill {
+		display: flex;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px dashed @neutral-dark;
+
+		img {
+			border-radius: 3px;
+		}
+	}
+
+	&__description {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		padding: 60px;
+
+		h3 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+/* Experience */
+.experience h2 {
+	font-size: 3.8rem;
+	color: @neutral-dark;
+	margin-bottom: 30px;
+	letter-spacing: 0.3rem;
+}
+.company {
+	margin-bottom: 60px;
+
+	&__img {
+		border-radius: 3px;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid @neutral-dark;
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+	}
+
+	&__name {
+		display: inline-block;
+		font-size: 3rem;
+		flex-grow: 2;
+		padding-left: 30px;
+	}
+
+	&__years {
+		font-size: 1.8rem;
+		font-weight: 600;
+	}
+
+	&__bullets ul {
+		list-style: square inside;
+		font-size: 2rem;
+		line-height: 1.5;
+	}
+}
+
+.contact {
+	h2 {
+		font-size: 3.8rem;
+		color: @neutral-dark;
+		margin-bottom: 30px;
+		letter-spacing: 0.3rem;
+	}
+
+	span {
+		display: block;
+		margin: 10px 0;
+		font-size: 2rem;
+	}
+}
